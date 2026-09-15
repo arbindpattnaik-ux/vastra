@@ -19,7 +19,7 @@
     <nav class="main-nav" aria-label="Main navigation">
       <a href="#shop">Shop</a><a href="#story">Our story</a><a href="#how-it-works">How it works</a>
     </nav>
-    <div class="header-actions"><button class="icon-button" id="searchButton" aria-label="Search products"><i data-lucide="search"></i></button><button class="cart-button" id="cartButton"><i data-lucide="shopping-bag"></i><span>Bag</span><b id="cartCount">0</b></button></div>
+    <div class="header-actions"><button class="icon-button" id="searchButton" aria-label="Search products"><i data-lucide="search"></i></button><button class="admin-toggle" id="adminToggle" type="button">Admin</button><button class="cart-button" id="cartButton"><i data-lucide="shopping-bag"></i><span>Bag</span><b id="cartCount">0</b></button></div>
   </header>
 
   <main id="top">
@@ -47,6 +47,64 @@
 
     <section class="how-section" id="how-it-works"><div class="section-heading"><div><p class="eyebrow"><span></span> Easy as a message</p><h2>From cart to <em>celebration.</em></h2></div><p class="heading-side">No complicated checkout. Your order goes directly to our WhatsApp, where a real person confirms your size, delivery, and payment.</p></div><div class="steps"><div class="step"><span class="step-number">01</span><i data-lucide="shopping-bag"></i><h3>Pick your pieces</h3><p>Add your favourites to the bag and check your savings.</p></div><div class="step"><span class="step-number">02</span><i data-lucide="message-circle"></i><h3>Send us your order</h3><p>Tap WhatsApp checkout. Your full order is ready to send.</p></div><div class="step"><span class="step-number">03</span><i data-lucide="scan-line"></i><h3>Scan & pay</h3><p>We send our UPI QR and confirm your order once paid.</p></div></div></section>
   </main>
+
+  <aside class="admin-panel hidden" id="adminPanel" aria-label="Admin panel">
+    <div class="admin-panel-header">
+      <div>
+        <p class="eyebrow"><span></span> Store admin</p>
+        <h2>Manage products</h2>
+      </div>
+      <button class="close-button" id="closeAdmin" aria-label="Close admin panel"><i data-lucide="x"></i></button>
+    </div>
+
+    <form id="productForm" class="admin-form">
+      <input type="hidden" id="productId" />
+      <div class="form-grid">
+        <label>
+          Product name
+          <input id="productName" type="text" placeholder="Example: Mogra Silk Saree" required />
+        </label>
+        <label>
+          Category
+          <select id="productCategory">
+            <option value="Sarees">Sarees</option>
+            <option value="Dresses">Dresses</option>
+            <option value="Sets">Sets</option>
+          </select>
+        </label>
+        <label>
+          Colour
+          <input id="productColour" type="text" placeholder="Example: Rose pink · Cotton" required />
+        </label>
+        <label>
+          Price
+          <input id="productPrice" type="number" min="0" step="1" placeholder="1999" required />
+        </label>
+        <label>
+          Original price
+          <input id="productOriginal" type="number" min="0" step="1" placeholder="2499" required />
+        </label>
+        <label>
+          Discount %
+          <input id="productDiscount" type="number" min="0" max="100" step="1" placeholder="24" required />
+        </label>
+        <label class="full-width">
+          Badge
+          <input id="productBadge" type="text" placeholder="Bestseller" />
+        </label>
+        <label class="full-width">
+          Image URL
+          <input id="productImage" type="url" placeholder="https://images.unsplash.com/..." required />
+        </label>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="button button-dark">Save product</button>
+        <button type="button" id="resetProductForm" class="button button-light">New product</button>
+      </div>
+    </form>
+
+    <div class="admin-product-list" id="adminProductList"></div>
+  </aside>
 
   <footer class="site-footer"><div class="footer-brand"><a class="brand" href="#top"><span class="brand-mark">V</span><span><strong>Vastralayam</strong><small>THE EVERYDAY DRAPE</small></span></a><p>Colourful clothes for beautifully ordinary days.</p></div><div><p class="footer-label">Say hello</p><a href="https://wa.me/919938087077" class="footer-contact" target="_blank" rel="noreferrer">WhatsApp us: +91 99380 87077 <i data-lucide="arrow-up-right"></i></a><small>Mon–Sat, 10am–7pm IST</small></div><div><p class="footer-label">Follow along</p><a class="footer-contact" href="#">Instagram <i data-lucide="arrow-up-right"></i></a><small>@vastralayam.edit</small></div><div class="footer-bottom">© 2026 Vastralayam <span>Made for your next beautiful occasion</span></div></footer>
 
