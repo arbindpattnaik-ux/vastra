@@ -17,7 +17,7 @@ const products = [
 
 let selectedCategory = 'All';
 let query = '';
-let cart = JSON.parse(localStorage.getItem('rangraja-cart') || '[]');
+let cart = JSON.parse(localStorage.getItem('vastralayam-cart') || '[]');
 
 const money = value => `₹${value.toLocaleString('en-IN')}`;
 const getVisibleProducts = () => products.filter(product => (selectedCategory === 'All' || product.category === selectedCategory) && `${product.name} ${product.colour}`.toLowerCase().includes(query.toLowerCase()));
@@ -31,7 +31,7 @@ function renderProducts() {
   lucide.createIcons();
 }
 
-function saveCart() { localStorage.setItem('rangraja-cart', JSON.stringify(cart)); }
+function saveCart() { localStorage.setItem('vastralayam-cart', JSON.stringify(cart)); }
 function cartCount() { return cart.reduce((sum, item) => sum + item.quantity, 0); }
 function getCartProduct(id) { return products.find(product => product.id === id); }
 function addToCart(id) { const item = cart.find(entry => entry.id === id); if (item) item.quantity += 1; else cart.push({ id, quantity: 1 }); saveCart(); renderCart(); showToast(); }
@@ -57,7 +57,7 @@ function renderCart() {
 function openCart() { document.querySelector('#cartDrawer').classList.add('open'); document.querySelector('#cartOverlay').classList.add('open'); document.body.style.overflow = 'hidden'; }
 function closeCart() { document.querySelector('#cartDrawer').classList.remove('open'); document.querySelector('#cartOverlay').classList.remove('open'); document.body.style.overflow = ''; }
 function showToast() { const toast = document.querySelector('#toast'); toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 1800); }
-function checkout() { if (!cart.length) return; const lines = cart.map(item => { const product = getCartProduct(item.id); return `• ${product.name} x${item.quantity} — ${money(product.price * item.quantity)}`; }).join('\n'); const total = cart.reduce((sum, item) => sum + getCartProduct(item.id).price * item.quantity, 0); const message = `Hello Rangraja! I would like to place an order:\n\n${lines}\n\nTotal: ${money(total)}\n\nPlease confirm availability, delivery details and send the UPI QR scanner for payment. Thank you!`; window.open(`https://wa.me/${SHOP_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank'); }
+function checkout() { if (!cart.length) return; const lines = cart.map(item => { const product = getCartProduct(item.id); return `• ${product.name} x${item.quantity} — ${money(product.price * item.quantity)}`; }).join('\n'); const total = cart.reduce((sum, item) => sum + getCartProduct(item.id).price * item.quantity, 0); const message = `Hello Vastralayam! I would like to place an order:\n\n${lines}\n\nTotal: ${money(total)}\n\nPlease confirm availability, delivery details and send the UPI QR scanner for payment. Thank you!`; window.open(`https://wa.me/${SHOP_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank'); }
 
 function init() {
   renderProducts(); renderCart();
