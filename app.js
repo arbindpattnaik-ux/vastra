@@ -1,4 +1,4 @@
-const SHOP_WHATSAPP = '919999999999';
+const SHOP_WHATSAPP = '919938087077';
 
 const products = [
   { id: 1, name: 'Gulmohar Silk Saree', category: 'Sarees', colour: 'Rani pink · Handloom silk', price: 1899, original: 2499, discount: 24, badge: 'Bestseller', image: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=85' },
