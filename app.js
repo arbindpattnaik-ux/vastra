@@ -16,10 +16,10 @@ const DEFAULT_PRODUCTS = [
   { id: 12, name: 'Megh Malhar Saree', category: 'Sarees', colour: 'Teal · Mulmul cotton', price: 1199, original: 1599, discount: 25, badge: 'Everyday', image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=85' }
 ];
 
-let products = JSON.parse(localStorage.getItem('vastralayam-products') || 'null') || DEFAULT_PRODUCTS;
+let products = JSON.parse(localStorage.getItem('vastram-products') || 'null') || DEFAULT_PRODUCTS;
 let selectedCategory = 'All';
 let query = '';
-let cart = JSON.parse(localStorage.getItem('vastralayam-cart') || '[]');
+let cart = JSON.parse(localStorage.getItem('vastram-cart') || '[]');
 
 const money = value => `₹${value.toLocaleString('en-IN')}`;
 async function loadProducts() {
@@ -27,9 +27,9 @@ async function loadProducts() {
     const response = await fetch('/api/products');
     if (!response.ok) throw new Error('Catalog unavailable');
     products = await response.json();
-    localStorage.setItem('vastralayam-products', JSON.stringify(products));
+    localStorage.setItem('vastram-products', JSON.stringify(products));
   } catch (error) {
-    products = JSON.parse(localStorage.getItem('vastralayam-products') || 'null') || DEFAULT_PRODUCTS;
+    products = JSON.parse(localStorage.getItem('vastram-products') || 'null') || DEFAULT_PRODUCTS;
   }
 }
 const getVisibleProducts = () => products.filter(product => (selectedCategory === 'All' || product.category === selectedCategory) && `${product.name} ${product.colour}`.toLowerCase().includes(query.toLowerCase()));
@@ -55,7 +55,7 @@ function renderProducts() {
   lucide.createIcons();
 }
 
-function saveCart() { localStorage.setItem('vastralayam-cart', JSON.stringify(cart)); }
+function saveCart() { localStorage.setItem('vastram-cart', JSON.stringify(cart)); }
 function cartCount() { return cart.reduce((sum, item) => sum + item.quantity, 0); }
 function getCartProduct(id) { return products.find(product => product.id === id); }
 function addToCart(id, size = 'M') { const item = cart.find(entry => entry.id === id && entry.size === size); if (item) item.quantity += 1; else cart.push({ id, quantity: 1, size }); saveCart(); renderCart(); showToast(); }

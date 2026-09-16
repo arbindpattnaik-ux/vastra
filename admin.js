@@ -1,4 +1,4 @@
-const tokenKey = 'vastralayam-admin-token';
+const tokenKey = 'vastram-admin-token';
 const money = value => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(value);
 let products = [];
 let adminToken = sessionStorage.getItem(tokenKey) || '';
