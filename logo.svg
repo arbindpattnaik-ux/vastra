@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-labelledby="title desc">
+  <title id="title">Vastram Defining Trends</title>
+  <desc id="desc">Vastram logo with a red and black woven checker pattern</desc>
+  <rect width="900" height="300" fill="#fff"/>
+  <g transform="translate(560 0)" stroke="#111" stroke-width="3">
+    <path d="M0 0v220M72 0v260M144 0v300M216 0v300M288 0v300M360 0v300"/>
+    <path d="M0 60h360M0 120h360M0 180h360M0 240h360M0 300h360"/>
+    <path fill="#e51b10" d="M0 60h72v60H0zM288 60h72v60h-72zM216 240h72v60h-72z"/>
+    <path fill="#171717" d="M144 60h72v60h-72zM72 120h72v60H72zM216 120h72v60h-72zM288 180h72v60h-72z"/>
+  </g>
+  <text x="26" y="168" font-family="Georgia, serif" font-size="94" font-weight="700" letter-spacing="7" fill="#e51b10" stroke="#111" stroke-width="1">VASTRAM</text>
+  <text x="28" y="224" font-family="Georgia, serif" font-size="49" letter-spacing="1" fill="#111">Defining Trends</text>
+  <g transform="translate(28 246)">
+    <rect width="844" height="34" fill="#111"/>
+    <g fill="#0aa9e8" stroke="#fff" stroke-width="3"><rect x="48" y="5" width="24" height="24"/><rect x="194" y="5" width="24" height="24"/><rect x="340" y="5" width="24" height="24"/><rect x="486" y="5" width="24" height="24"/><rect x="632" y="5" width="24" height="24"/><rect x="778" y="5" width="24" height="24"/></g>
+    <g fill="#e51b10" stroke="#fff" stroke-width="3"><rect x="121" y="5" width="24" height="24"/><rect x="267" y="5" width="24" height="24"/><rect x="413" y="5" width="24" height="24"/><rect x="559" y="5" width="24" height="24"/><rect x="705" y="5" width="24" height="24"/></g>
+  </g>
+</svg>

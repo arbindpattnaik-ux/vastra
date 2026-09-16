@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vastram Admin | Catalog dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+  <script src="admin.js" defer></script>
+</head>
+<body>
+  <main class="admin-shell">
+    <section class="login-view" id="loginView" aria-labelledby="loginTitle">
+      <div class="login-card">
+        <a class="wordmark" href="/">Vastram <span>Defining Trends</span></a>
+        <p class="kicker">Private workspace</p>
+        <h1 id="loginTitle">Catalog dashboard</h1>
+        <p class="intro">Sign in to update the products shown in your store.</p>
+        <form id="loginForm">
+          <label>Username<input id="username" type="text" autocomplete="username" required /></label>
+          <label>Password<input id="password" type="password" autocomplete="current-password" required /></label>
+          <p class="form-error" id="loginError" role="alert"></p>
+          <button class="button button-dark" type="submit">Sign in</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="dashboard-view" id="dashboardView" hidden>
+      <header class="dashboard-header">
+        <div>
+          <a class="wordmark" href="/">Vastram <span>Defining Trends</span></a>
+          <p class="kicker">Catalog dashboard</p>
+          <h1>Manage your edit</h1>
+        </div>
+        <div class="header-actions"><a class="button button-light" href="/">View store</a><button class="button button-light" id="logoutButton" type="button">Sign out</button></div>
+      </header>
+
+      <div class="dashboard-grid">
+        <section class="editor-panel" aria-labelledby="editorTitle">
+          <div class="panel-heading"><div><p class="kicker">Product details</p><h2 id="editorTitle">Add a product</h2></div><button class="text-button" id="newProductButton" type="button">New product</button></div>
+          <form id="productForm">
+            <input id="productId" type="hidden" />
+            <div class="form-grid">
+              <label>Product name<input id="productName" type="text" placeholder="Mogra Silk Saree" required /></label>
+              <label>Category<select id="productCategory"><option value="Sarees">Sarees</option><option value="Dresses">Dresses</option><option value="Sets">Sets</option></select></label>
+              <label class="wide">Colour and material<input id="productColour" type="text" placeholder="Rose pink - Handloom silk" required /></label>
+              <label>Price<input id="productPrice" type="number" min="0" step="1" placeholder="1999" required /></label>
+              <label>Original price<input id="productOriginal" type="number" min="0" step="1" placeholder="2499" required /></label>
+              <label>Discount percent<input id="productDiscount" type="number" min="0" max="100" step="1" placeholder="24" required /></label>
+              <label>Badge<input id="productBadge" type="text" placeholder="Bestseller" /></label>
+              <label class="wide">Image URL<input id="productImage" type="url" placeholder="https://images.unsplash.com/..." required /></label>
+            </div>
+            <div class="image-preview" id="imagePreview"><span>Image preview</span></div>
+            <p class="form-error" id="saveError" role="alert"></p>
+            <div class="form-actions"><button class="button button-dark" type="submit">Save changes</button><button class="button button-light" id="resetButton" type="button">Clear form</button></div>
+          </form>
+        </section>
+
+        <section class="catalog-panel" aria-labelledby="catalogTitle">
+          <div class="panel-heading"><div><p class="kicker">Published catalog</p><h2 id="catalogTitle">Your products <span id="productCount">0</span></h2></div><button class="icon-button" id="refreshButton" type="button" aria-label="Refresh catalog">Refresh</button></div>
+          <p class="status" id="statusMessage" role="status"></p>
+          <div class="product-list" id="productList"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "name": "vastram",
+  "private": true,
+  "scripts": {
+    "start": "py server.py"
+  }
+}
